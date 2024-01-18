@@ -13,7 +13,7 @@ const FormComponent = ({ schema }) => {
       schema.jsonKey,
       schema.subParameters[0].validate.defaultValue
     );
-  }, []);
+  }, [schema.jsonKey, schema.subParameters, updateFormData]);
 
   const [selectedTab, setSelectedTab] = useState(
     schema.subParameters[0].validate.defaultValue

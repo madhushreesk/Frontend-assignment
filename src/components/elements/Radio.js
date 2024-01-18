@@ -5,7 +5,7 @@ const RadioField = ({ schema }) => {
   const { updateFormData } = useFormContext();
   useEffect(() => {
     updateFormData(schema.jsonKey, schema.validate.defaultValue);
-  }, []);
+  }, [schema.jsonKey, schema.validate.defaultValue, updateFormData]);
 
   const [selectedTab, setSelectedTab] = useState(schema.validate.defaultValue);
 

@@ -8,7 +8,7 @@ const SelectField = ({ schema }) => {
   );
   useEffect(() => {
     updateFormData(schema.jsonKey, schema.validate.defaultValue);
-  }, []);
+  }, [schema.jsonKey, schema.validate.defaultValue, updateFormData]);
 
   const handleChange = (event) => {
     setSelectedValue(event.target.value);

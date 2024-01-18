@@ -9,7 +9,7 @@ const CheckedBox = ({ schema }) => {
 
   useEffect(() => {
     updateFormData(schema.jsonKey, schema.validate.defaultValue);
-  }, []);
+  }, [schema.jsonKey, schema.validate.defaultValue, updateFormData]);
 
   const handleChange = (event) => {
     setIsChecked(event.target.checked);
