@@ -1,15 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useFormContext } from "../../FormContext";
 
 const CheckedBox = ({ schema }) => {
   const { updateFormData } = useFormContext();
-  const [isChecked, setIsChecked] = React.useState(
-    schema.validate.defaultValue
-  );
+  const [isChecked, setIsChecked] = useState(schema.validate.defaultValue);
 
   useEffect(() => {
     updateFormData(schema.jsonKey, schema.validate.defaultValue);
-  }, [schema.jsonKey, schema.validate.defaultValue, updateFormData]);
+  }, []);
 
   const handleChange = (event) => {
     setIsChecked(event.target.checked);
@@ -20,10 +18,10 @@ const CheckedBox = ({ schema }) => {
       <div className="mt-2" isRequired={schema.validate.required}>
         <div className="flex">
           <input
-            type="checkbox"
             id={schema.jsonKey}
-            isChecked={isChecked}
-            onChange={handleChange}
+            type="checkbox"
+            checked={isChecked}
+            onChange={(event) => handleChange(event)}
             isDisabled={schema.validate.immutable}
           />
           <div className="my-2 font-bold relative flex ml-2">
